@@ -1,23 +1,23 @@
 <template>
-<header>
+<header  class="d-flex align-items-center">
 
-    <form>
+    <form >
         <input type="text"
                class="control ms-3"
                placeholder="Search your Movie"
+               v-model.trim="searchMovie"
+               @keyup.enter="$emit('newMovie', searchMovie)"
          
         >
     </form>
 
     <button class="btn btn-primary "
-
+            type="submit"
+            @click.prevent="$emit('newMovie', searchMovie)"
     >
     Search
 
     </button>
-
-     
-
 
 </header>
   
@@ -28,7 +28,15 @@
 export default {
     name: 'Header',
 
+data(){
+    return{
+    searchMovie: null,
+
+   };
+ },
+
 }
+
 </script>
 
 <style  scoped lang="scss">
