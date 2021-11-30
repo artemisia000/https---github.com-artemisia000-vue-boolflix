@@ -5,15 +5,15 @@
         <input type="text"
                class="control ms-3"
                placeholder="Search your Movie"
-               v-model.trim="searchMovie"
-               @keyup.enter="$emit('newMovie', searchMovie)"
+               v-model.trim="searchText"
+               @keyup.enter="$emit('search', searchText)"
          
         >
     </form>
 
     <button class="btn btn-primary "
             type="submit"
-            @click.prevent="$emit('newMovie', searchMovie)"
+            @click="$emit('search', searchText)"
     >
     Search
 
@@ -30,7 +30,7 @@ export default {
 
 data(){
     return{
-    searchMovie: null,
+    searchText: '',
 
    };
  },

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header  @newMovie="searchChar"/>
+    <Header  @search="searchChar"/>
 
-    <Main />
+    <Main :list="listMovie"/>
   
   </div>
 </template>
@@ -20,62 +20,41 @@ export default {
     Main,
   },
 
- data(){
-    return{
-        listMovie: [],
-        searchText: '',
+  data(){
+    return {
+      listMovie: [],
     };
-},
-
-computed: {
-  filterChar(){
-    console.log('computed');
-
-    if(this.searchText === ''){
-      return this.listMovie;
-
-    }
-    return  this.listMovie.filter(item => {
-      return item.results.title.tolowerCase().includes(this.searchText.tolowerCase())
-    });
-
   },
-},
-
-created(){
-    this.getMovie();
-
-},
+  
 
 methods: {
-    getMovie(){
+ 
+      searchChar(searchText) {
+        console.log(searchText);
 
-    axios
-        .get('https://api.themoviedb.org/3/search/movie', {
+        if(this.searchText !== '') {
+
+        axios.get('https://api.themoviedb.org/3/search/movie', {
 
           params: {
             api_key: '01761d48304ba79f4b1135eba2934ae8',
-            query: 'Wes Anderson',
+            query: searchText,
           },
         })
+
+     
         .then(result => {
             console.log(result.data);
-            this.listMovie = result.data;
+            this.listMovie = result.data.results;
         })
         .catch(error => console.log(error));
-    },
-
-    searchChar(text){
-      console.log(text);
-      this.searchText = text;
-
-    },
+       }
+   
   },
-
+ },
 };
 
-
-
+ 
 
 </script>
 
