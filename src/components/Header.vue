@@ -1,7 +1,7 @@
 <template>
 <header  class="d-flex align-items-center">
 
-    <form >
+    
         <input type="text"
                class="control ms-3"
                placeholder="Search your Movie"
@@ -9,7 +9,7 @@
                @keyup.enter="$emit('search', searchText)"
          
         >
-    </form>
+    
 
     <button class="btn btn-primary "
             type="submit"
