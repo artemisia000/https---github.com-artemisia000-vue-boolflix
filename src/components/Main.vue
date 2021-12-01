@@ -1,18 +1,21 @@
 <template>
 <main>
-    
-    <div class="col" v-for="item in list" :key="item.id">
 
-         <Card 
-       :title="item.title"
-       :originalTitle="item.original_title"
-       :language="item.original_language"
-       :vote="item.vote_average"
-    />
-
-  
+<div class="container ">
+    <div class="row">
+        
+        <div class="col-lg-2" v-for="item in list" :key="item.id">
+            
+             <Card 
+            :title="item.title ? item.title : item.name"
+            :originalTitle="item.original_title ? item.original.title : item.original_name"
+            :language="item.original_language"
+            :vote="item.vote_average"
+            :poster="item.poster_path"
+            />
+        </div>
     </div>
-
+</div>
    
 </main>
   
@@ -32,13 +35,22 @@ export default {
         props: {
             list: Array,  
     },
-
-
 };
 
 
 </script>
 
-<style>
+<style scoped lang="scss">
+
+main{
+    height: 100vh;
+    padding-top: 50px;
+    background-color: #1b1b1b;
+
+  
+}
+
+
+
 
 </style>
