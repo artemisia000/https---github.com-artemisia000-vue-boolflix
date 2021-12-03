@@ -22,8 +22,8 @@
                         :src="require(`../assets/${language}.png`)" alt="">   
                 </li>
                 <li>Voto: {{ vote }} 
-                    <i v-for='(number, index) in roundNum(item.vote_average)' :key="`mov-${index}`" class="fa-regular fa-star"></i>
-                    <i v-for='(number, index) in 5 - roundNum(item.vote_average)' :key="index" class="fa-regular fa-star"></i>
+                   <!-- <i v-for='(number, index) in randNum(item.vote_average)' :key="`mov-${index}`" class="fa-regular fa-star star"></i>
+                    <i v-for='(number, index) in 5 - randNum(item.vote_average)' :key="index" class="fa-regular fa-star star"></i>-->
                 </li>
                 <li>Trama:{{ over }} </li>
             </ul>
@@ -56,7 +56,7 @@ export default {
 
     },
 
-     roundNum(number){
+    randNum(number){
             return Math.ceil(number/2)
         }
 
@@ -70,7 +70,7 @@ export default {
     width: 200px;
     justify-content: flex-start;
     margin: 15px;
-    display: block;
+
 
 
 .pic{
@@ -90,7 +90,6 @@ export default {
     width: 200px;   
     height: 300px;
     background-color: #1b1b1b;
-    padding-top:10px ;
     line-height: 25px;
     &:hover{
         position: relative;

@@ -43,7 +43,7 @@ export default {
 <style scoped lang="scss">
 
 main{
-    height: 100vh;
+    height: 100%;
     padding-top: 50px;
     background-color: #1b1b1b;
 

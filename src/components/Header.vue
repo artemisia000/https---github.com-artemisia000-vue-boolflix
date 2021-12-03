@@ -2,7 +2,7 @@
 <header class="container-fluid">
     <div class="row">
         <div class="col nav">
-            <div class="box">
+            <div>
                 <ul>
                     <li><a href=""><img src="https://fontmeme.com/permalink/211201/c072857f28ffed69c9266a55183f4c20.png" alt=""></a></li>
                     <li><a href="">Home</a></li>
@@ -26,7 +26,7 @@
                         type="submit"
                         @click="$emit('search', searchText)"
                 >
-                  search
+                  Search
                 </button>
                 
             </div>
@@ -94,6 +94,7 @@ header{
         display: flex;
         align-items: center;
         
+        
 
          .control{
         width: 140px;
@@ -112,7 +113,10 @@ header{
     .btn{
         height: 30px;
         margin: 0 15px;
+   
     }
+
+
 
 
     }
