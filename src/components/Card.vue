@@ -68,8 +68,8 @@ export default {
 
 .box {
     width: 200px;
-    justify-content: flex-start;
     margin: 15px;
+  
 
 
 
@@ -93,10 +93,13 @@ export default {
     width: 200px;   
     height: 300px;
     background-color: #1b1b1b;
-    line-height: 25px;
+    line-height: 20px;
+    padding:5px ;
     &:hover{
         position: relative;
+       
 
+     
     }
 
     li{
