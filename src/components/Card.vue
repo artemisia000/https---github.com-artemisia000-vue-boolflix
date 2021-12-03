@@ -83,6 +83,9 @@ export default {
             position: absolute;
             top: 0;
             left: 0;
+            &:hover{
+                display: none;
+            }
     
         }
 
@@ -101,7 +104,7 @@ export default {
     font-size: 12px;
     color: #ddd;
     background-color: #1b1b1b;
-    padding: 0;
+    padding-left: 0;
     margin: 0;
         
     }
