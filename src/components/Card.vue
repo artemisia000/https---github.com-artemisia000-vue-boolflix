@@ -1,33 +1,35 @@
 <template>
     
-        <div class="card ">
+    <div class="box ">
+        <div class="card pic">
+
             <img v-if="poster "
                  :src="`https://image.tmdb.org/t/p/w342${poster}`" 
-                 :alt="title">
+                 :alt="title"
+                 class="poster">
 
             <img v-else
                  :src="`https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`"
-                 :alt="title">  
-
-                 <div class="text">
-                      <ul>
+                 :alt="title"
+                 class="poster1">  
+        <div class="text">           
+            <ul>
                 <li>Titolo:{{ title }}</li>
                 <li>Titolo originale: {{ originalTitle }}</li>
                 <li>Lingua:
                     <img class="flag"
-                         v-if="flags.includes(language)" 
-                         :src="require(`../assets/${language}.png`)" alt="">   
+                        v-if="flags.includes(language)" 
+                        :src="require(`../assets/${language}.png`)" alt="">   
                 </li>
-                <li>Voto: {{ vote }} </li>
+                <li>Voto: {{ vote }} 
+                    <i v-for='(number, index) in roundNum(item.vote_average)' :key="`mov-${index}`" class="fa-regular fa-star"></i>
+                    <i v-for='(number, index) in 5 - roundNum(item.vote_average)' :key="index" class="fa-regular fa-star"></i>
+                </li>
+                <li>Trama:{{ over }} </li>
             </ul>
-
-
-                 </div>
-
-
-
-   
+        </div>    
         </div>
+    </div>
 </template>
 
 <script>
@@ -40,7 +42,10 @@ export default {
         language: String,
         vote: Number,
         poster: String,
+        over: String,
     },
+
+
 
     data() {
         return {
@@ -48,7 +53,12 @@ export default {
           posters: [],
        
         }
+
     },
+
+     roundNum(number){
+            return Math.ceil(number/2)
+        }
 
 };
 
@@ -56,33 +66,66 @@ export default {
 
 <style scoped lang="scss">
 
-.card {
+.box {
     width: 200px;
     justify-content: flex-start;
-    border: #1b1b1b;
+    margin: 15px;
+    display: block;
+
+
+.pic{
+        width: 200px;
+        border: 2px solid #1b1b1b;
+        .poster,
+        .poster1{
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
     
+        }
+
+   .text{
+    width: 200px;   
+    height: 300px;
+    background-color: #1b1b1b;
+    padding-top:10px ;
+    line-height: 25px;
+    &:hover{
+        position: relative;
+
+    }
+
     li{
-        list-style: none;
-        font-size: 15px;
-        color: #ddd;
-        background-color: #1b1b1b;
-        padding: 0;
-        margin: 0;
+    list-style: none;
+    font-size: 12px;
+    color: #ddd;
+    background-color: #1b1b1b;
+    padding: 0;
+    margin: 0;
         
     }
 
-    .text{
-      height: 300px;
-      background-color: #1b1b1b;
+
+      
     }
 
-    img{
-        width: 200px;
     }
 
-    .flag{
-        width: 30px;
+    
+ 
     }
-}
+        .flag{
+    width: 30px;
+    }
+
+    .star{
+        color: yellow;
+    }
+
+
+
+
 
 </style>

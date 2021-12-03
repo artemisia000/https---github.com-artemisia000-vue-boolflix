@@ -96,7 +96,8 @@ header{
         
 
          .control{
-        width: 100px;
+        width: 140px;
+        font-size: 15px;
         border: transparent;
         background-color:#000 ;
         color: #fff;

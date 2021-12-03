@@ -3,7 +3,6 @@
 
 <div class="container ">
     <div class="row">
-        
         <div class="col-lg-2" v-for="item in list" :key="item.id">
             
              <Card 
@@ -12,6 +11,7 @@
             :language="item.original_language"
             :vote="item.vote_average"
             :poster="item.poster_path"
+            :over="item.overview"
             />
         </div>
     </div>
