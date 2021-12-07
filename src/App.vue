@@ -40,13 +40,13 @@ methods: {
         axios.get('https://api.themoviedb.org/3/search/movie', {
 
           params: {
-            api_key: '01761d48304ba79f4b1135eba2934ae8',
+            api_key: 'e99307154c6dfb0b4750f6603256716d',
             query: searchText,
           },
         })
 
         .then(result => {
-            console.log(result.data.results);
+            console.log(result.data);
             this.listMovie = result.data.results;
         })
         .catch(error => console.log(error));

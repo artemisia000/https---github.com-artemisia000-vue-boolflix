@@ -23,11 +23,11 @@
                         :src="require(`../assets/${language}.png`)" alt="">   
                 </li>
                  <li>Voto: {{ vote }} </li>
-                <li>Voto: {{ vote }} 
-                    <i v-for='(number, index) in roundNum(item.vote_average)' :key="`mov-${index}`" class="fa-regular fa-star"></i>
-                    <i v-for='(number, index) in 5 - roundNum(item.vote_average)' :key="index" class="fa-regular fa-star"></i>
+                 <li> Voto: {{ vote }}
+                    <i v-for="(number, index) in roundNum(vote)" :key="`mov-${index}`" class="fa-regular fa-star"></i>
+                    <i v-for="(number, index) in (5 - roundNum(vote))" :key="index" class="fa-regular fa-star"></i>
                 </li>
-              
+          
                 <li>Trama:{{ over }} </li>
             </ul>
         </div>    
@@ -64,9 +64,6 @@ export default {
         }
 
     }
-
-    
-
  
 };
 
@@ -74,68 +71,50 @@ export default {
 
 <style scoped lang="scss">
 
-.box {
-    width: 200px;
-    height: 300px;
-    margin: 15px;
-
-
-
-.pic{
+    .box {
         width: 200px;
-        border: 2px solid #1b1b1b;
-        display: block;
-        .poster,
-        .poster1{
-            width: 100%;
-            height: 300px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            &:hover{
-                display: none;
+        height: 300px;
+        margin: 15px;
+        .pic{
+            width: 200px;
+            border: 2px solid #1b1b1b;
+            display: block;
+            .poster,
+            .poster1{
+                width: 100%;
+                height: 300px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                &:hover{
+                    display: none;
+                }
             }
-    
         }
-
-   .text{
-    width: 200px;   
-    height: 300px;
-    background-color: #1b1b1b;
-    padding:5px ;
-    overflow: scroll;
-    &:hover{
-        position: relative;
-        
-       
-
-     
-    }
-
-    li{
-    list-style: none;
-    font-size: 12px;
-    color: #ddd;
-    background-color: #1b1b1b;
-    padding-left: 0;
-    margin: 0;    
-    }
-
-
-      
-    }
-
-    }
-
-    
- 
-    }
-        .flag{
-    width: 30px;
-    }
-
-    .star{
-        color: yellow;
+        .text{
+            width: 200px;
+            height: 300px;
+            background-color: #1b1b1b;
+            padding:5px ;
+            overflow: auto;
+            &:hover{
+                position: relative;
+            }
+            li{
+            list-style: none;
+            font-size: 12px;
+            color: #ddd;
+            background-color: #1b1b1b;
+            padding-left: 0;
+            margin: 0;
+            }
+            .flag{
+            width: 30px;
+            }
+            .star{
+                color: yellow;
+            }
+        }
     }
 
 
