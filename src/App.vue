@@ -3,6 +3,7 @@
     <Header  @search="searchChar"/>
 
     <Main :list="listMovie"/>
+
     <Main  :list="listTV"/>
   
   </div>
@@ -45,7 +46,7 @@ methods: {
         })
 
         .then(result => {
-            console.log(result.data);
+            console.log(result.data.results);
             this.listMovie = result.data.results;
         })
         .catch(error => console.log(error));

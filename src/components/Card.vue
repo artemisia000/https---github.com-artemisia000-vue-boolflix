@@ -11,7 +11,8 @@
             <img v-else
                  :src="`https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`"
                  :alt="title"
-                 class="poster1">  
+                 class="poster1">
+        </div>           
         <div class="text">           
             <ul>
                 <li>Titolo:{{ title }}</li>
@@ -21,15 +22,15 @@
                         v-if="flags.includes(language)" 
                         :src="require(`../assets/${language}.png`)" alt="">   
                 </li>
-                <li>Voto: {{ vote }} 
-                   <!-- <i v-for='(number, index) in randNum(item.vote_average)' :key="`mov-${index}`" class="fa-regular fa-star star"></i>
-                    <i v-for='(number, index) in 5 - randNum(item.vote_average)' :key="index" class="fa-regular fa-star star"></i>-->
+                <li>Voto: {{ vote }}
+                <i v-for='(number, index) in Math.ceil(vote/2)' :key="`movie-${index}`" class="fa-regular fa-star star"></i>  
+                <i v-for='(number, index) in 5 - Math.ceil(vote/2)' :key="index" class="fa-regular fa-star star"></i>
                 </li>
                 <li>Trama:{{ over }} </li>
             </ul>
         </div>    
-        </div>
     </div>
+
 </template>
 
 <script>
@@ -56,10 +57,7 @@ export default {
 
     },
 
-    randNum(number){
-            return Math.ceil(number/2)
-        }
-
+ 
 };
 
 </script>
@@ -68,14 +66,15 @@ export default {
 
 .box {
     width: 200px;
+    height: 300px;
     margin: 15px;
-  
 
 
 
 .pic{
         width: 200px;
         border: 2px solid #1b1b1b;
+        display: block;
         .poster,
         .poster1{
             width: 100%;
@@ -93,10 +92,11 @@ export default {
     width: 200px;   
     height: 300px;
     background-color: #1b1b1b;
-    line-height: 20px;
     padding:5px ;
+    overflow: scroll;
     &:hover{
         position: relative;
+        
        
 
      
@@ -108,8 +108,7 @@ export default {
     color: #ddd;
     background-color: #1b1b1b;
     padding-left: 0;
-    margin: 0;
-        
+    margin: 0;    
     }
 
 
