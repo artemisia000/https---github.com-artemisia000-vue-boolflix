@@ -22,10 +22,12 @@
                         v-if="flags.includes(language)" 
                         :src="require(`../assets/${language}.png`)" alt="">   
                 </li>
-                <li>Voto: {{ vote }}
-                <i v-for='(number, index) in Math.ceil(vote/2)' :key="`movie-${index}`" class="fa-regular fa-star star"></i>  
-                <i v-for='(number, index) in 5 - Math.ceil(vote/2)' :key="index" class="fa-regular fa-star star"></i>
+                 <li>Voto: {{ vote }} </li>
+                <li>Voto: {{ vote }} 
+                    <i v-for='(number, index) in roundNum(item.vote_average)' :key="`mov-${index}`" class="fa-regular fa-star"></i>
+                    <i v-for='(number, index) in 5 - roundNum(item.vote_average)' :key="index" class="fa-regular fa-star"></i>
                 </li>
+              
                 <li>Trama:{{ over }} </li>
             </ul>
         </div>    
@@ -52,10 +54,18 @@ export default {
         return {
           flags: ['it', 'en'],
           posters: [],
-       
+        }
+    },
+
+    methods: {
+
+        roundNum(number){
+            return Math.ceil(number/2)
         }
 
-    },
+    }
+
+    
 
  
 };
